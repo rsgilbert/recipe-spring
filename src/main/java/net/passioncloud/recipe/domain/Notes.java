@@ -9,13 +9,15 @@ public class Notes {
     private Long id;
 
     @Lob // large object
-    @OneToOne
     private String notes;
+
+    @OneToOne
     private Recipe recipe;
 
     public Long getId() {
         return id;
     }
+
 
     public void setId(Long id) {
         this.id = id;

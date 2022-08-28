@@ -15,16 +15,24 @@ public class Recipe {
     private String source;
     private String url;
     private String direction;
-    private String difficulty;
-
     @Lob
     private Byte[] image;
+
+    @Enumerated(value=EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToOne(cascade = CascadeType.ALL) // owning entity. Owns the relationship
     private Notes notes;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
+
+    @ManyToMany
+    @JoinTable(
+            name = "recipe_category",
+            joinColumns = @JoinColumn(name="recipe_id"),
+            inverseJoinColumns = @JoinColumn(name="category_id"))
+    private Set<Category> categories;
 
     public Long getId() {
         return id;
@@ -42,6 +50,10 @@ public class Recipe {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 
     public String getPrepTime() {
@@ -90,14 +102,6 @@ public class Recipe {
 
     public void setDirection(String direction) {
         this.direction = direction;
-    }
-
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
     }
 
     public Byte[] getImage() {
