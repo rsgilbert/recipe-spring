@@ -5,6 +5,13 @@
     <title>Recipe | Index</title>
 </head>
 <body>
-  <h1>Recipe and dinner for two 5vwrv</h1>
+  <h1>Recipes</h1>
+
+
+  <ul>
+      <li th:each="recipe : ${recipes}">
+          <p th:text="${recipe.description}"></p>
+      </li>
+  </ul>
 </body>
 </html>
