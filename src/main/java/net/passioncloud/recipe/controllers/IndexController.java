@@ -1,5 +1,6 @@
 package net.passioncloud.recipe.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import net.passioncloud.recipe.domain.Category;
 import net.passioncloud.recipe.domain.UnitOfMeasure;
 import net.passioncloud.recipe.repositories.CategoryRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
+@Slf4j
 @Controller
 public class IndexController {
 
