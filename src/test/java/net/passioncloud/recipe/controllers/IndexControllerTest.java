@@ -67,8 +67,4 @@ class IndexControllerTest {
         Assertions.assertEquals(2, setInController.size());
     }
 
-    @Test
-    public void dummyFail(){
-        org.assertj.core.api.Assertions.fail("trying to fail for ci");
-    }
 }
